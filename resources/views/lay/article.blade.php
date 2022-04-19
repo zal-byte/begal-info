@@ -77,13 +77,9 @@
 			</div>
 		</div>
 		<div class="col-md-7">
-			<div class="container" id="s-0">
-				<div class="card border-0 shadow-sm">
-					<div class="card-body">
-						<div id="article">
-							
-						</div>
-					</div>
+			<div class="container" style="padding-bottom: 10px;" id="s-0">
+				<div id="article">
+
 				</div>
 			</div>
 		</div>	

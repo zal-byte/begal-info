@@ -7,6 +7,8 @@ use App\Library\ArticleHandler;
 
 use Session;
 
+ArticleHandler::getInstance();
+
 class HomeController extends Controller
 {
     //
@@ -18,7 +20,8 @@ class HomeController extends Controller
     }
 
     public function getArticle(){
-        return array('test');
+       $article = ArticleHandler::getArticle();
+       return $article;
     }
 
 

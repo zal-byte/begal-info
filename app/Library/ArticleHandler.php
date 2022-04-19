@@ -17,9 +17,7 @@
 		}
 
 		public static function getArticle(){
-			$data = self::getData();
-
-			
+			return self::getData();
 		}
 
 		private static function getData(){
