@@ -9,6 +9,7 @@ use Session;
 
 ArticleHandler::getInstance();
 
+
 class HomeController extends Controller
 {
     //

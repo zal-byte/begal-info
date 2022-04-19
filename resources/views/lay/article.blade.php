@@ -124,7 +124,7 @@
 
 			$.ajax({
 				type:'GET',
-				url:'/article/post',
+				url:"{{route('article_post')}}",
 				success:function(res){
 					$('#article').html(res);
 				}

@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 Route::get('/article/post', function(){
     return View::make('lay.article_layout')->with('data', HomeController::getArticle())->render();
-});
+})->name('article_post');
 
 
 Route::get('/auth/login',[AuthController::class, 'log_in'])->name('login_form');
