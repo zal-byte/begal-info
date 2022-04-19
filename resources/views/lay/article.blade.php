@@ -2,6 +2,9 @@
 
 @section('body')
 	<style>
+		body{
+			overflow-x: hidden;
+		}
 		@media only screen and (max-width: 768px){
 			#d-1{
 				margin-bottom: 5px;
@@ -26,6 +29,7 @@
 			#s-0{
 				margin-top: 30px;
 			}
+
 		}
 	</style>
 	<div class="row justify-content-center">
@@ -35,7 +39,10 @@
 					<div class="card-body">
 						<div class="row">
 							<div class="col-sm" id="img-col">
-								<img src="{{asset('img/thief.png')}}" style="width:30%; border-radius: 90px;">
+								<img src="{{asset('img/thief.png')}}" id="img-user" style="width:45%; border-radius: 90px;">
+							</div>
+							<div class="col-sm text-center" id="username">
+								{{ Session::get('full_name') }}
 							</div>
 							<div class="col-sm">
 								<a onclick="$('#modal-logout').modal('show')" id="logout" style="width:100%;" class="bg-danger text-white btn btn-solid text-decoration-none">

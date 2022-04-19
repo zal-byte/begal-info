@@ -51,7 +51,7 @@
 			foreach( $usr as $user ){
 				if(isset($user[$username])){
 					if( $user[$username]['password'] == md5($password)){
-						return array('status'=>1);
+						return array('status'=>1,'full_name'=> $user[$username]['name']);
 						break;
 					}else{
 						return array('status'=>0, 'msg'=>'Invalid password');

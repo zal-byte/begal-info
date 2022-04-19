@@ -27,6 +27,14 @@
 
 					@endif
 
+					@if(session()->has('success'))
+					<div class="mt-1 mb-1">
+						<p class="text-center text-white rounded p-2 bg-success">
+							{{ session()->get('success') }}
+						</p>
+					</div>
+					@endif
+
 					<button type="submit" class="btn btn-solid btn-dark mt-1 text-white" style="width:100%;">
 						Daftar <span class="fa fa-add"></span>
 					</button>

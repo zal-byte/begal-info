@@ -30,7 +30,7 @@ class AuthController extends Controller
                 if( $password == $verify_password ){
                     $response = AuthHandler::signup( $username, $fullname, $password);
                     if( $response['status'] == 1 ){
-                        return redirect(route('login_form'));
+                        return back()->with('success', 'Daftar berhasil');
                     }else{
                         return back()->withErrors([$response['msg']]);
                     }
@@ -54,6 +54,7 @@ class AuthController extends Controller
 
         if( $response['status'] == 1){
             Session::put('login', 1);
+            Session::put('full_name', $response['full_name']);
             return redirect(route('home'));
         }else{
             return back()->withErrors([$response['msg']]);

@@ -16,5 +16,17 @@
             "name": "Rizal Solehudin",
             "password": "aea6380b5e33432e2f0abda224575d8a"
         }
+    },
+    {
+        "hotaru00": {
+            "name": "Hotaru Ichijou",
+            "password": "2fd88c08e6e4911489da4178aa119ad0"
+        }
+    },
+    {
+        "kuina00": {
+            "name": "Kuina Natsukawa",
+            "password": "8cb22d66bc87e3ebb8701ff0efb8f624"
+        }
     }
 ]
