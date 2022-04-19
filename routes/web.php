@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,9 +19,16 @@ Route::get('/', function () {
 });
 
 
+Route::get('/article/post', function(){
+    return View::make('lay.article_layout')->with('data', HomeController::getArticle())->render();
+});
+
 
 Route::get('/auth/login',[AuthController::class, 'log_in'])->name('login_form');
 Route::get('/auth/signup', [AuthController::class,'sign_up'])->name('signup_form');
 
 Route::post('/auth/login_post', [AuthController::class, 'log_in_post'])->name('login_post');
 Route::post('/auth/signup_post', [AuthController::class, 'sign_up_post'])->name('signup_post');
+
+Route::get('/home', [HomeController::class, 'home'])->name('home');
+Route::get('/logout',[AuthController::class, 'logout'])->name('logout');

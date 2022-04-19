@@ -64,6 +64,7 @@
 	</div>
 
 
+
 <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
 <script type="text/javascript" src="{{asset('fontawesome/js/all.min.js')}}"></script>
 </body>

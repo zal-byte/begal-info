@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Library\AuthHandler;
 use Illuminate\Http\Request;
+
+use Session;
+
+AuthHandler::getInstance();
 
 class AuthController extends Controller
 {
@@ -14,13 +19,51 @@ class AuthController extends Controller
         return view('lay.signup');
     }
 
-    public function sign_up_post( Request $request ){
+    public function sign_up_post( Request $request ){        
+        $username = $request->username;
+        $password = $request->password;
+        $fullname = $request->full_name;
+        $verify_password = $request->verify_password;
+
+        if( strlen($username) > 0 ){
+            if( strlen($fullname) > 0 ){
+                if( $password == $verify_password ){
+                    $response = AuthHandler::signup( $username, $fullname, $password);
+                    if( $response['status'] == 1 ){
+                        return redirect(route('login_form'));
+                    }else{
+                        return back()->withErrors([$response['msg']]);
+                    }
+                }else{
+                    return back()->withErrors(["Password doesn't match"]);
+                }
+            }else{
+                return back()->withErrors(["Don't leave name blank"]);
+            }
+        }else{
+            return back()->withErrors(['You neen an username']);
+        }
 
     }
+
     public function log_in_post( Request $request ){
         $username = $request->username;
         $password = $request->password;
 
-        print_r($username . "|" . $password);
+        $response = AuthHandler::login( $username, $password );
+
+        if( $response['status'] == 1){
+            Session::put('login', 1);
+            return redirect(route('home'));
+        }else{
+            return back()->withErrors([$response['msg']]);
+        }
+    }
+
+    public function logout(){
+        if(Session::get('login')){
+            Session::forget('login');
+            return redirect(route('login_form'));
+        }
     }
 }
