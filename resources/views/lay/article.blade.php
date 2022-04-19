@@ -81,7 +81,7 @@
 				<div class="card border-0 shadow-sm">
 					<div class="card-body">
 						<div id="article">
-
+							
 						</div>
 					</div>
 				</div>

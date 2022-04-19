@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Library\ArticleHandler;
+
 use Session;
 
 class HomeController extends Controller
@@ -18,4 +20,6 @@ class HomeController extends Controller
     public function getArticle(){
         return array('test');
     }
+
+
 }
